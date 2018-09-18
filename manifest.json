@@ -1,0 +1,55 @@
+{
+
+	"manifest_version": 2,
+	
+	"name": "Clout",
+	"description": "Get followers",
+	"version": "1.0",
+	
+	
+	"page_action":
+	{
+		"default_icon" : "icon.png"
+	
+	},
+	
+	"icons" : {
+    "16" : "icon.png",
+    "128" : "icon.png"
+	},
+	
+	"content_scripts": [
+		{
+			"matches" : [ "https://*.instagram.com/*"],
+			"js" : ["jquery.js", "content.js", "contentscript.js"]
+			}
+	],
+	
+	"background": {
+		"scripts": ["jquery.js", "background.js"],
+		"persistent": true
+	},
+	
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	
+	
+	"permissions": [
+		"tabs",
+		"<all_urls>",
+		"webNavigation",
+		"unlimitedStorage",
+		"storage",
+		"activeTab",
+		"alarms",
+		"contextMenus",
+		"identity",
+		"http://*/",
+		"https://*/",
+		"file:///*/*",
+		"https://*.google.com/",
+		"http://docs.google.com/spreadsheets/*",
+		"https://docs.google.com/spreadsheets/*",
+		"notifications"
+	]
+	
+}
